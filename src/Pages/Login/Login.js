@@ -13,6 +13,8 @@ const Login = () => {
         loading,
         error,
     ] = useSignInWithEmailAndPassword(auth);
+    const location = useLocation();
+    let from = location.state?.from?.pathname || "/";
     const handleEmail = (event) => {
         setEmail(event.target.value);
     }
@@ -20,7 +22,7 @@ const Login = () => {
         setPassword(event.target.value);
     }
     if (user) {
-        navigate('/')
+        navigate(from, { replace: true });
     }
     const handleLogin = (event) => {
         event.preventDefault();
