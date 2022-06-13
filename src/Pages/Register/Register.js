@@ -14,7 +14,7 @@ const Register = () => {
         user,
         loading,
 
-    ] = useCreateUserWithEmailAndPassword(auth);
+    ] = useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true });
     const navigate = useNavigate();
 
     const handleEmail = (event) => {
