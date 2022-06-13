@@ -8,11 +8,11 @@ const Service = (props) => {
         navigate(`/checkout/${id}`)
     }
     return (
-        <div className="text-center p-1 border g-4  ">
+        <div className="text-center p-1 border g-4  mb-5">
             <h5 className="m-4">Type: {description}</h5>
             <img src={image} alt="" width="320px" />
             <p className='text-center'>Price: ${price}</p>
-            <div className='text-center'>
+            <div className='text-center mb-5'>
                 <button onClick={() => handleNavigateServiceDetail(id)} className='btn btn-success  mb-1 '>Checkout</button>
             </div>
         </div>
