@@ -6,7 +6,7 @@ const Banner = () => {
         <div>
             <div className="bg">
                 <div className="title-section">
-                    <h1 className="title">Independent Photography Service</h1>
+                    <h1 className="title">Independent <span style={{ color: "cyan" }}>Photography</span> Service</h1>
 
                 </div>
             </div>
