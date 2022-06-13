@@ -31,6 +31,14 @@ const Register = () => {
     }
     const handleRegister = (event) => {
         event.preventDefault();
+        if (password !== confirmPassWord) {
+            setError("password did not match!")
+            return;
+        }
+        if (password.length < 6) {
+            setError("password length must be greater than 6 character!");
+            return;
+        }
         createUserWithEmailAndPassword(email, password)
 
     }
@@ -41,17 +49,17 @@ const Register = () => {
                 <form onSubmit={handleRegister} action="">
                     <div className="input-group text-center ">
                         <label htmlFor="email" className="me-5">Email</label>
-                        <input onBlur={handleEmail} type="email" name="email" />
+                        <input onBlur={handleEmail} type="email" required name="email" />
                     </div>
                     <div className="input-group text-center">
                         <label htmlFor="password" className="me-3">Password</label>
-                        <input onBlur={handlePassword} type="password" name="password" />
+                        <input onBlur={handlePassword} type="password" required name="password" />
                     </div>
                     <div className="input-group text-center">
                         <label htmlFor="confirm-password" className="me-2 p-2">Confirm Password</label>
-                        <input onBlur={handleConfirmPassword} type="password" name="confirm-password" />
+                        <input onBlur={handleConfirmPassword} type="password" required name="confirm-password" />
                     </div>
-
+                    <p style={{ color: "red" }}>{error}</p>
                     <input className='form-submit text-center' type="submit" value="SignUp" />
                 </form>
                 <p>Already have an account? <Link className="form-link" to="/login">Please Login</Link></p>

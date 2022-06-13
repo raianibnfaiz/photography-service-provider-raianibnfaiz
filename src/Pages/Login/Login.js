@@ -3,6 +3,7 @@ import './Login.css';
 import { Link, Navigate, useLocation, useNavigate } from 'react-router-dom';
 import auth from '../../firebase.init';
 import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import SocialLogin from './SocialLogin/SocialLogin';
 const Login = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
@@ -35,11 +36,11 @@ const Login = () => {
                 <form onSubmit={handleLogin} action="">
                     <div className="input-group text-center">
                         <label htmlFor="email" className="m-3">Email</label>
-                        <input onBlur={handleEmail} type="email" name="email" />
+                        <input onBlur={handleEmail} type="email" required name="email" />
                     </div>
                     <div className="input-group text-center" >
                         <label htmlFor="password" >Password</label>
-                        <input onBlur={handlePassword} className="m-1" type="password" name="password" />
+                        <input onBlur={handlePassword} className="m-1" required type="password" name="password" />
                     </div>
 
                     <div className="text-center">
@@ -47,9 +48,9 @@ const Login = () => {
                     </div>
                 </form>
                 <div className="text-center">
-                    <p>New to this Ema-John? <Link className="form-link " to="/signup">Create new account</Link></p>
+                    <p>New To Independent Photographer's website? <Link className="form-link " to="/signup">Create new account</Link></p>
                 </div>
-
+                <SocialLogin></SocialLogin>
             </div>
 
         </div>
